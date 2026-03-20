@@ -1,0 +1,59 @@
+@Gitlab2Pushsafer_HostAddress = https://gitlab2pushsafer.coders.pizza
+
+### CI Running
+POST {{Gitlab2Pushsafer_HostAddress}}/ci-status
+Content-Type: application/json
+x-gitlab-token: 162A640CF4AEE21BD51A3E4C3B889AEB
+
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 31757,
+    "status": "running",
+    "ref": "staging-9.0.53"
+  },
+  "project": {
+    "id": 153,
+    "name": "signage"
+  }
+}
+
+###
+
+### CI Failed
+POST {{Gitlab2Pushsafer_HostAddress}}/ci-status
+Content-Type: application/json
+
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 31758,
+    "status": "failed",
+    "ref": "staging-9.0.53"
+  },
+  "project": {
+    "id": 153,
+    "name": "signage"
+  }
+}
+
+###
+
+### CI Success
+POST {{Gitlab2Pushsafer_HostAddress}}/ci-status
+Content-Type: application/json
+
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 31759,
+    "status": "success",
+    "ref": "staging-9.0.53"
+  },
+  "project": {
+    "id": 153,
+    "name": "signage"
+  }
+}
+
+###
