@@ -49,11 +49,26 @@ dotnet publish --os linux --arch arm64 /t:PublishContainer
 
 ## GitLab webhook setup
 
-1. Go to your GitLab project → **Settings → Webhooks**
-2. Set the URL to `https://your-host/ci-status`
-3. Set the **Secret token** to match `GitLab__WebhookToken`
-4. Enable **Pipeline events**
-5. Save
+Webhooks can be configured at the **project** level (single repo) or at the **group** level (all projects in a group).
+
+### Project-level
+
+1. Open your GitLab project
+2. Go to **Settings → Webhooks**
+3. Click **Add new webhook**
+4. Fill in the fields:
+   - **URL**: `https://your-host/ci-status`
+   - **Secret token**: the same value as `GitLab__WebhookToken`
+5. Under **Trigger**, enable **Pipeline events**
+6. Optionally enable **SSL verification** if your host has a valid certificate
+7. Click **Add webhook**
+8. Use the **Test → Pipeline events** button to send a test payload and verify the connection
+
+### Group-level
+
+1. Open your GitLab group
+2. Go to **Settings → Webhooks**
+3. Follow the same steps as above — the webhook will fire for all projects within the group
 
 ## Security
 
